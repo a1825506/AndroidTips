@@ -29,3 +29,5 @@
     EventBus的优势在于调度灵活，不需要依赖Context也没有Handler那样的耦合。可继承、优先级、粘滞是EventBus比之于BroadCast和观察者最大的优点。缺点     也很明显，EventBus中的事件分发是通过注解函数的参数类型决定的，这就导致了当接受者过多或相同参数时很难理清消息流。
     
 3# 图片裁剪 https://github.com/Yalantis/uCrop 框架
+
+4# SharedPreferences 替代方案 MMKV——基于 mmap 的高性能通用 key-value 组件 https://github.com/Tencent/MMKV/blob/master/readme_cn.md
