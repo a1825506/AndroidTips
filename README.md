@@ -34,5 +34,7 @@
 
 5# Android Activity的四种启动模式
    .standard:这是 Activity 的默认启动模式，每次激活 Activity 的时候都会创建一个新的 Activity 实例，并放入任务栈中。
-   .singleTop:如果在任务的栈顶正好存有该 Activity 的实例，则会通过调用 onNewIntent() 方法进行重用，否则就会同 standard 模式一样，创建新的实例     并放入栈顶。即便栈中已经存在了该 Activity 的实例，也会创建新的实例。使用场景：资讯阅读类 APP 的内容界面。
-   .singleTask：只要栈中已经存在了该 Activity 的实例，就会直接调用 onNewIntent() 方法来实现重用实例。重用时，直接让该 Activity 的实例回到栈 。     顶，并且移除之前它上面的所有 Activity 实例。如果栈中不存在这样的实例，则和 standard 模式相同。
+   .singleTop:如果在任务的栈顶正好存有该 Activity 的实例，则会通过调用 onNewIntent() 方法进行重用，否则就会同 standard 模式一样，创建新的实例               并放入栈顶。即便栈中已经存在了该 Activity 的实例，也会创建新的实例。使用场景：资讯阅读类 APP 的内容界面。
+   .singleTask：只要栈中已经存在了该 Activity 的实例，就会直接调用 onNewIntent() 方法来实现重用实例。重用时，直接让该 Activity 的实例回到栈 。                 顶，并且移除之前它上面的所有 Activity 实例。如果栈中不存在这样的实例，则和 standard 模式相同。使用场景：浏览器的主页面，或者大部                 分 APP 的主页面。
+   .singleInstance: 在一个新栈中创建该 Activity 的实例，并让多个应用共享该栈中的该 Activity 实例。一旦该模式的 Activity 实例已经存在于某个栈                       中，任何应用再激活该 Activity 时都会重用该栈中的实例，是的，依然是调用 onNewIntent() 方法。 Android 系统的来电页面，多次                     来电均是使用的同一个 Activity 。
+   startActivityForResult启动Activity导致singleTop模式失效。
