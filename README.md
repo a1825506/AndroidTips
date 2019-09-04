@@ -57,4 +57,72 @@
        }
      
      } 
+   
+7# 建造者模式
+package com.senon.lib_common.utils;
+
+public class LoginManager {
+
+    public boolean isSavePwd;
+
+    public boolean isAutoLogin;
+
+    public boolean isBootLauncher;
+
+    public boolean isCrashOnRestart;
+
+
+    public LoginManager(Builder builder){
+        this.isAutoLogin = builder.isAutoLogin;
+        this.isBootLauncher = builder.isBootLauncher;
+        this.isCrashOnRestart = builder.isCrashOnRestart;
+        this.isSavePwd = builder.isSavePwd;
+    }
+
+
+    public static class Builder{
+
+        boolean isSavePwd;
+
+        boolean isAutoLogin;
+
+        boolean isBootLauncher;
+
+        boolean isCrashOnRestart;
+
+        public Builder(){
+            this.isSavePwd=false;
+            this.isAutoLogin=false;
+            this.isBootLauncher=false;
+            this.isCrashOnRestart=false;
+
+        }
+
+        public Builder isSavePwd(boolean savePwd){
+            this.isSavePwd = savePwd;
+            return this;
+        }
+
+        public Builder isAutoLogin(boolean autoLogin){
+            this.isAutoLogin = autoLogin;
+            return this;
+        }
+
+        public Builder isBootLauncher(boolean isBootLauncher){
+            this.isBootLauncher = isBootLauncher;
+            return this;
+        }
+
+        public Builder isCrashOnRestart(boolean isCrashOnRestart){
+            this.isCrashOnRestart = isCrashOnRestart;
+            return this;
+        }
+
+        public LoginManager build(){
+            return new LoginManager(this);
+        }
+    }
+    
+}
+
  
