@@ -31,3 +31,8 @@
 3# 图片裁剪 https://github.com/Yalantis/uCrop 框架
 
 4# SharedPreferences 替代方案 MMKV——基于 mmap 的高性能通用 key-value 组件 https://github.com/Tencent/MMKV/blob/master/readme_cn.md
+
+5# Android Activity的四种启动模式
+   .standard:这是 Activity 的默认启动模式，每次激活 Activity 的时候都会创建一个新的 Activity 实例，并放入任务栈中。
+   .singleTop:如果在任务的栈顶正好存有该 Activity 的实例，则会通过调用 onNewIntent() 方法进行重用，否则就会同 standard 模式一样，创建新的实例     并放入栈顶。即便栈中已经存在了该 Activity 的实例，也会创建新的实例。使用场景：资讯阅读类 APP 的内容界面。
+   .singleTask：只要栈中已经存在了该 Activity 的实例，就会直接调用 onNewIntent() 方法来实现重用实例。重用时，直接让该 Activity 的实例回到栈 。     顶，并且移除之前它上面的所有 Activity 实例。如果栈中不存在这样的实例，则和 standard 模式相同。
