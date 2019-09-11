@@ -126,8 +126,15 @@ public class LoginManager {
 }
 
 8# 事件分发顺序 activity->viewGroup->view
-   涉及到的方法 activity:dispatchTouchEvent()->viewGroup:dispatchTouchEvent()->viewGroup:onInterceptTouchEvent()-        >view:dispatchTouchEvent()->view:onTouchEvent()->viewGroup:onTouchEvent()->activity:onTouchEvent()
+   涉及到的方法 activity:dispatchTouchEvent()->viewGroup:dispatchTouchEvent()->viewGroup:onInterceptTouchEvent()-       >view:dispatchTouchEvent()->view:onTouchEvent()->viewGroup:onTouchEvent()->activity:onTouchEvent()
    只有在viewGroup中有拦截事件onInterceptTouchEvent()，view中消费事件。
+   
+9# 自定义控件步骤
+   1、自定义属性的声明与获取
+   2、测量 onMeasure()
+   3、布局 onLayout()
+   4、绘制 onDraw()
+   
    
 
  
