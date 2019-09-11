@@ -125,4 +125,9 @@ public class LoginManager {
     
 }
 
+8# 事件分发顺序 activity->viewGroup->view
+   涉及到的方法 activity:dispatchTouchEvent()->viewGroup:dispatchTouchEvent()->viewGroup:onInterceptTouchEvent()-        >view:dispatchTouchEvent()->view:onTouchEvent()->viewGroup:onTouchEvent()->activity:onTouchEvent()
+   只有在viewGroup中有拦截事件onInterceptTouchEvent()，view中消费事件。
+   
+
  
